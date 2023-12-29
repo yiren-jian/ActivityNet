@@ -13,7 +13,7 @@ for vid in tqdm(d):
     v_name = "videos/train/" + v_name + ".mp4"
     if os.path.isfile(v_name):
         for i in range(len(vid["enCap"])):
-            anns.append({"image_id": v_name, "video": v_name, "caption": vid["enCap"][i]})
+            anns.append({"image_id": vid["videoID"]+".mp4", "video": vid["videoID"]+".mp4", "caption": vid["enCap"][i]})
     else:
         pass
 
@@ -30,7 +30,7 @@ for vid in tqdm(d):
     v_name = "videos/val/" + v_name + ".mp4"
     if os.path.isfile(v_name):
         for i in range(len(vid["enCap"])):
-            anns.append({"image_id": v_name, "video": v_name, "caption": vid["enCap"][i]})
+            anns.append({"image_id": vid["videoID"]+".mp4", "video": vid["videoID"]+".mp4", "caption": vid["enCap"][i]})
     else:
         pass
 with open('cap_val.json', 'w') as f:
@@ -48,7 +48,7 @@ for vid in tqdm(d):
     v_name = "videos/test/" + v_name + ".mp4"
     if os.path.isfile(v_name):
         for i in range(len(vid["enCap"])):
-            anns.append({"image_id": v_name, "video": v_name, "caption": vid["enCap"][i]})
+            anns.append({"image_id": vid["videoID"]+".mp4", "video": vid["videoID"]+".mp4", "caption": vid["enCap"][i]})
     else:
         pass
 
