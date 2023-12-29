@@ -33,7 +33,8 @@ for vid in tqdm(d):
             anns.append({"image_id": v_name, "video": v_name, "caption": vid["enCap"][i]})
     else:
         pass
-
+with open('cap_val.json', 'w') as f:
+    json.dump(anns, f)
 with open('vatex_val_gt.json', 'w') as f:
     json.dump({"annotation": anns}, f)
 
@@ -51,5 +52,7 @@ for vid in tqdm(d):
     else:
         pass
 
+with open('cap_test.json', 'w') as f:
+    json.dump(anns, f)
 with open('vatex_test_gt.json', 'w') as f:
     json.dump({"annotation": anns}, f)
