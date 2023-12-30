@@ -33,10 +33,24 @@ for vid in tqdm(d):
             anns.append({"image_id": vid["videoID"]+".mp4", "video": vid["videoID"]+".mp4", "caption": vid["enCap"][i]})
     else:
         pass
-with open('cap_val.json', 'w') as f:
-    json.dump(anns, f)
+
 with open('vatex_val_gt.json', 'w') as f:
     json.dump({"annotation": anns}, f)
+
+anns = []
+for vid in tqdm(d):
+    v_name = vid["videoID"]
+    v_name = "videos/val/" + v_name + ".mp4"
+    if os.path.isfile(v_name):
+        caps = []
+        for i in range(len(vid["enCap"])):
+            caps.append(vid["enCap"][i])
+            anns.append({"image_id": vid["videoID"]+".mp4", "video": vid["videoID"]+".mp4", "caption": caps})
+    else:
+        pass
+
+with open('cap_val.json', 'w') as f:
+    json.dump(anns, f)
 
 #### test videos
 with open('vatex_public_test_english_v1.1.json') as f:
@@ -52,7 +66,20 @@ for vid in tqdm(d):
     else:
         pass
 
-with open('cap_test.json', 'w') as f:
-    json.dump(anns, f)
 with open('vatex_test_gt.json', 'w') as f:
     json.dump({"annotation": anns}, f)
+
+anns = []
+for vid in tqdm(d):
+    v_name = vid["videoID"]
+    v_name = "videos/test/" + v_name + ".mp4"
+    if os.path.isfile(v_name):
+        caps = []
+        for i in range(len(vid["enCap"])):
+            caps.append(vid["enCap"][i])
+            anns.append({"image_id": vid["videoID"]+".mp4", "video": vid["videoID"]+".mp4", "caption": caps})
+    else:
+        pass
+
+with open('cap_test.json', 'w') as f:
+    json.dump(anns, f)
