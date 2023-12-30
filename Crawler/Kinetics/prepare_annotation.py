@@ -35,7 +35,7 @@ for vid in tqdm(d):
         pass
 
 with open('vatex_val_gt.json', 'w') as f:
-    json.dump({"annotation": anns}, f)
+    json.dump({"annotations": anns}, f)
 
 anns = []
 for vid in tqdm(d):
@@ -67,7 +67,7 @@ for vid in tqdm(d):
         pass
 
 with open('vatex_test_gt.json', 'w') as f:
-    json.dump({"annotation": anns}, f)
+    json.dump({"annotations": anns}, f)
 
 anns = []
 for vid in tqdm(d):
